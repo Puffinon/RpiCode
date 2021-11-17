@@ -116,15 +116,15 @@ while 1:
         # statistics..
         if badCRC != 0:
             print("RS232 Packages with bad CRC = " +  str(badCRC))
-            print("RS232 Package with bad CRC = " +  str(round((counter/badCRC)),.2))
+            print("RS232 Package with bad CRC = " +  str(round((counter/badCRC))))
         
         if badFormat != 0:
             print("RS232 Packages with bad format = " +  str(badFormat))
-            print("RS232 Package with bad format = " +  str(round((counter/badFormat)),.2))
+            print("RS232 Package with bad format = " +  str(round((counter/badFormat))))
         
         if badGID != 0:
             print("RS232 Packages with bad GID = " +  str(badGID))
-            print("RS232 Package with bad GID = " +  str(round((counter/badGID)),.2))
+            print("RS232 Package with bad GID = " +  str(round((counter/badGID))))
         
 
         #clean all buffers
