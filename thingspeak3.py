@@ -57,7 +57,7 @@ while 1:
 
     #  if CRC isn't correct or if data is not from our group, ignore completely
     try:
-        if data_num[5] == "0":
+        if not (data_num[5] == "0"):
             print("CRC invalid")
             faults += 1 #keep note on the amount of faults encountered
             continue
