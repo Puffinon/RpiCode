@@ -33,7 +33,9 @@ Accel1 = []
 Accel2 = []
 Accel3 = []
 ParkingSensor = []
-faults = 0
+badFormat = 0
+badCRC = 0
+badGID = 0
 
 # prepare API codes
 url1 = 'https://api.thingspeak.com/update?api_key=Q6TAHYAPF8ARTD30'
@@ -53,13 +55,14 @@ while 1:
         data_num[5]
     except:
         print("Data has bad format, ignoring")
+        badFormat += 1 #keep note on the amount of badly formated lines received
         continue
 
     #  if CRC isn't correct or if data is not from our group, ignore completely
     try:
         if not (data_num[5] == "0"):
             print("CRC invalid")
-            faults += 1 #keep note on the amount of faults encountered
+            badCRC += 1 #keep note on the amount of faults encountered
             continue
     except:
         print("Couldn't find CRC! Is the Serial Connected?")
@@ -67,6 +70,7 @@ while 1:
 
     if data_num[0] != "14":
         print("GID invalid")
+        badGID += 1 #keep note on the wrong group IDs encountered
         continue
 
 
@@ -108,8 +112,19 @@ while 1:
         upload1.close()
         print("Uploaded!")
         
-        print("RS232 Packages lost = " +  str(faults))
-        print("RS232 Package loss = " +  str(round((counter/faults)),.2))
+
+        # statistics..
+        if badCRC != 0:
+            print("RS232 Packages with bad CRC = " +  str(badCRC))
+            print("RS232 Package with bad CRC = " +  str(round((counter/badCRC)),.2))
+        
+        if badFormat != 0:
+            print("RS232 Packages with bad format = " +  str(badFormat))
+            print("RS232 Package with bad format = " +  str(round((counter/badFormat)),.2))
+        
+        if badGID != 0:
+            print("RS232 Packages with bad GID = " +  str(badGID))
+            print("RS232 Package with bad GID = " +  str(round((counter/badGID)),.2))
         
 
         #clean all buffers
