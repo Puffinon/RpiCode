@@ -109,7 +109,7 @@ while 1:
         print("Uploaded!")
         
         print("RS232 Packages lost = " +  str(faults))
-        print("RS232 Package loss = %0.2f" % (counter/faults))
+        print("RS232 Package loss = " +  str(round((counter/faults)),.2))
         
 
         #clean all buffers
