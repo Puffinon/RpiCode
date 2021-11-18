@@ -48,7 +48,7 @@ while 1:
     data_string = ser.readline() # read data from the serial port
     # filter data from the printed string
     data_num = re.findall('\d+(?:\.\d+)?', data_string)
-    print(data_num)
+    #print(data_num)
 
     # does the line contain all required data
     try:
