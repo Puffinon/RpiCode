@@ -48,11 +48,11 @@ while 1:
     data_string = ser.readline() # read data from the serial port
     # filter data from the printed string
     data_num = re.findall('\d+(?:\.\d+)?', data_string)
-    #print(data_num)
 
     # does the line contain all required data
     try:
         data_num[5]
+        print(data_num)
     except:
         # is this the data block separation, if so, skip
         if data_string[0] == "-":
@@ -60,6 +60,7 @@ while 1:
         print("Data has bad format, ignoring")
         badFormat += 1 #keep note on the amount of badly formated lines received
         continue
+    
 
     #  if CRC isn't correct or if data is not from our group, ignore completely
     try:
