@@ -33,7 +33,9 @@ Accel1 = []
 Accel2 = []
 Accel3 = []
 ParkingSensor = []
-badFormat, badCRC, badGID = 0
+badFormat = 0
+badCRC = 0
+badGID = 0
 
 # prepare API codes
 url1 = 'https://api.thingspeak.com/update?api_key=Q6TAHYAPF8ARTD30'
