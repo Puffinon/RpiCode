@@ -54,17 +54,15 @@ while 1:
         data_num[5]
         print(data_num)
     except:
-        # is this the data block separation, if so, skip
-        if data_string[0] == "-":
-            continue
+        print(data_string)
         print("Data has bad format, ignoring")
         badFormat += 1 #keep note on the amount of badly formated lines received
         continue
-    
+
 
     #  if CRC isn't correct or if data is not from our group, ignore completely
     try:
-        if not (data_num[5] == "0"):
+        if not (data_num[5] == "1"):
             print("CRC invalid")
             badCRC += 1 #keep note on the amount of faults encountered
             continue
