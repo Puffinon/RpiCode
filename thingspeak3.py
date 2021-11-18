@@ -53,8 +53,9 @@ while 1:
         print(data_num)
     except:
         print(data_string)
-        print("Data has bad format, ignoring")
-        badFormat += 1 #keep note on the amount of badly formated lines received
+        if data_string[0] != "-":
+            print("Data has bad format, ignoring")
+            badFormat += 1 #keep note on the amount of badly formated lines received
         continue
 
     #  if CRC isn't correct or if data is not from our group, ignore completely
@@ -110,15 +111,15 @@ while 1:
         # statistics..
         if badCRC != 0:
             print("RS232 Packages with bad CRC = " +  str(badCRC))
-            print("RS232 Package with bad CRC = " +  str(round((counter/badCRC))))
+            print("RS232 Package with bad CRC = " +  str(round((counter/badCRC))) + "%")
         
         if badFormat != 0:
             print("RS232 Packages with bad format = " +  str(badFormat))
-            print("RS232 Package with bad format = " +  str(round((counter/badFormat))))
+            print("RS232 Package with bad format = " +  str(round((counter/badFormat))) + "%")
         
         if badGID != 0:
             print("RS232 Packages with bad GID = " +  str(badGID))
-            print("RS232 Package with bad GID = " +  str(round((counter/badGID))))
+            print("RS232 Package with bad GID = " +  str(round((counter/badGID))) + "%")
         
 
         #clean all buffers
