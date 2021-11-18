@@ -33,9 +33,7 @@ Accel1 = []
 Accel2 = []
 Accel3 = []
 ParkingSensor = []
-badFormat = 0
-badCRC = 0
-badGID = 0
+badFormat, badCRC, badGID = 0
 
 # prepare API codes
 url1 = 'https://api.thingspeak.com/update?api_key=Q6TAHYAPF8ARTD30'
@@ -59,17 +57,11 @@ while 1:
         badFormat += 1 #keep note on the amount of badly formated lines received
         continue
 
-
     #  if CRC isn't correct or if data is not from our group, ignore completely
-    try:
-        if not (data_num[5] == "1"):
-            print("CRC invalid")
-            badCRC += 1 #keep note on the amount of faults encountered
-            continue
-    except:
-        print("Couldn't find CRC! Is the Serial Connected?")
+    if not (data_num[5] == "1"):
+        print("CRC invalid")
+        badCRC += 1 #keep note on the amount of faults encountered
         continue
-
     if data_num[0] != "14":
         print("GID invalid")
         badGID += 1 #keep note on the wrong group IDs encountered
