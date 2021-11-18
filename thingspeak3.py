@@ -4,8 +4,8 @@ import serial
 import re
 import urllib2
 
+# returns the average of a list
 def average(givenList):
-    print(givenList)
     try:
         theAverage = sum(givenList)/len(givenList)
     except:
@@ -54,6 +54,9 @@ while 1:
     try:
         data_num[5]
     except:
+        # is this the data block separation, if so, skip
+        if data_string[0] == "-":
+            continue
         print("Data has bad format, ignoring")
         badFormat += 1 #keep note on the amount of badly formated lines received
         continue
