@@ -55,7 +55,10 @@ while 1:
         print(data_num)
     except:
         print(data_string)
-        if data_string[0] != "-":
+        try:
+            if data_string[0] != "-":
+                continue    
+        except:
             print("Data has bad format, ignoring")
             badFormat += 1 #keep note on the amount of badly formated lines received
         continue
