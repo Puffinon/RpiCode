@@ -11,19 +11,19 @@ bus.write_byte_data(0x15,0x019,0x02)
 #wait for the sensor to start up
 time.sleep(1.5)
 
-data1 = [0,0,0]
+dataOut = [0,0,0]
 while 1:  
   time.sleep(0.1)
   # read the data from the gyro
-  data=bus.read_i2c_block_data(0x15,0x04,6)
+  dataIn=bus.read_i2c_block_data(0x15,0x04,6)
 
   
-  data1[0] = data[0] + (data[1]*256)
-  data1[1] = data[2] + (data[3]*256)
-  data1[2] = data[4] + (data[5]*256)
+  dataOut[0] = dataIn[0] + (dataIn[1]*256)
+  dataOut[1] = dataIn[2] + (dataIn[3]*256)
+  dataOut[2] = dataIn[4] + (dataIn[5]*256)
 
-  for xyz in data:
+  for xyz in dataOut:
         xyz = (xyz / 4096.0) * 180
 
-  print(data1)
+  print(dataOut)
 
