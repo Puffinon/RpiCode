@@ -22,8 +22,8 @@ while 1:
   dataOut[1] = dataIn[2] + (dataIn[3]*256)
   dataOut[2] = dataIn[4] + (dataIn[5]*256)
 
-  for xyz in dataOut:
-        xyz = (xyz / 4096.0) * 180
+  for i in range(3):
+        dataOut[i] = (dataOut[i] / 4096.0) * 180
 
   print(dataOut)
 
