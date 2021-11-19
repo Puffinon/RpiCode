@@ -28,43 +28,48 @@ while 1:
         dataOut[i] = (dataOut[i])
         dataOut[i] = round(dataOut[i])
 
+  Aval = 513
+  Bval = 4096
+  Cval = 3583
+  
+  x_Buff = dataOut[0]
+  y_Buff = dataOut[1]
+  z_Buff = dataOut[2]
 
-  OldMin = 500
-  OldMax = 3500
-  NewMin = 0
-  NewMax = 180
+  angleX = atan2(y_Buff , z_Buff) * 57.3;
+  angleY = atan2((- x_Buff) , sqrt(y_Buff * y_Buff + z_Buff * z_Buff)) * 57.3;
+  
+  print(dataOut)
+  print(round(angleX))
+  print(round(angleY))
 
-  if (4097 > dataOut[1] > 3499) and (0 < dataOut[2] < 550):
+"""
+  if (Bval > dataOut[1] > Cval) and (0 < dataOut[2] < Aval):
         OldValue = dataOut[2]
         #NewValue = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin
         
         #angleX = NewValue
         
-        angleX = -90 + ((dataOut[2]) / 520) * 90
+        angleX = -90 + ((dataOut[2]) / Aval) * 90
         #angleX = ((dataOut[2] - 3500) / 500) * 180
-  if (520 > dataOut[1] > 0) and (0 < dataOut[2] < 550):
-        angleX = ((dataOut[1]) / 520) * 90
+  if (Aval > dataOut[1] > 0) and (0 < dataOut[2] < Aval):
+        angleX = ((dataOut[1]) / Aval) * 90
         
-  if (520 > dataOut[1] > 0) and (3500 < dataOut[2] < 4000):
-        angleX = 180 - ((dataOut[1]) / 520) * 90
+  if (Aval > dataOut[1] > 0) and (Cval < dataOut[2] < Bval):
+        angleX = 180 - ((dataOut[1]) / Aval) * 90
         
-  if (4000 > dataOut[1] > 3500) and (3500 < dataOut[2] < 4000):
-        angleX = -90 -(((dataOut[1])-3500) / 520) * 90
+  if (Bval > dataOut[1] > Cval) and (Cval < dataOut[2] < Bval):
+        angleX = -90 -(((dataOut[1])-Cval) / Aval) * 90
         
 
 
-  if (3500 < dataOut[0] < 4000) and (0 < dataOut[2] < 550):
-        angleY = 90-((dataOut[2]) / 520) * 90
+  if (Cval < dataOut[0] < Bval) and (0 < dataOut[2] < Aval):
+        angleY = 90-((dataOut[2]) / Aval) * 90
         print("1")
-
-
 
   else:
         OldValue = dataOut[2]
         NewValue = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin
         #angleX = NewValue + 270
         
-
-  print(dataOut)
-  print(round(angleX))
-  print(round(angleY))
+"""
