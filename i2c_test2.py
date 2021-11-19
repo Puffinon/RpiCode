@@ -11,6 +11,8 @@ bus.write_byte_data(0x15,0x019,0x02)
 #wait for the sensor to start up
 time.sleep(1.5)
 
+angleX = 0
+angleY = 0
 dataOut = [0,0,0]
 while 1:  
   time.sleep(0.1)
@@ -52,9 +54,10 @@ while 1:
 
 
   if (3500 < dataOut[0] < 4000) and (0 < dataOut[2] < 550):
-        angleY = 90-((dataOut[1]) / 520) * 90
+        angleY = 90-((dataOut[0]) / 520) * 90
         print("1")
-  
+
+
 
 
   else:
