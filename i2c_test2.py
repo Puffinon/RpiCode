@@ -1,5 +1,6 @@
 import smbus
 import time
+import math
 from time import sleep
 
 # initiate bus object from SMBus
@@ -36,8 +37,8 @@ while 1:
   y_Buff = dataOut[1]
   z_Buff = dataOut[2]
 
-  angleX = atan2(y_Buff , z_Buff) * 57.3;
-  angleY = atan2((- x_Buff) , sqrt(y_Buff * y_Buff + z_Buff * z_Buff)) * 57.3;
+  angleX = math.atan2(y_Buff , z_Buff) * 57.3;
+  angleY = math.atan2((- x_Buff) , sqrt(y_Buff * y_Buff + z_Buff * z_Buff)) * 57.3;
   
   print(dataOut)
   print(round(angleX))
