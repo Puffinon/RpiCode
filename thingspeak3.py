@@ -44,7 +44,7 @@ url3 = 'https://api.thingspeak.com/update?api_key=OCKVD5GUF2IUZJGV'
 url4 = 'https://api.thingspeak.com/update?api_key=IEU5M69Q0EP9YKUH'
 
 while 1:
-    time.sleep(.25)
+    time.sleep(.5)
     data_string = ser.readline() # read data from the serial port
     # filter data from the printed string
     data_num = re.findall('\d+(?:\.\d+)?', data_string)
