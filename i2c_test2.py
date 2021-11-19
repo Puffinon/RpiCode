@@ -44,7 +44,11 @@ while 1:
   
   if (520 > dataOut[1] > 0) and (3500 < dataOut[2] < 4000):
         angleX = 180 - ((dataOut[1]) / 520) * 90
+
+  if (4000 > dataOut[1] > 3500) and (3500 < dataOut[2] < 4000):
+        angleX = -90 -(((dataOut[1])-3500) / 520) * 90
         print("YES")
+
   else:
         OldValue = dataOut[2]
         NewValue = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin
