@@ -23,7 +23,7 @@ while 1:
   dataOut[2] = dataIn[4] + (dataIn[5]*256)
 
   for i in range(3):
-        dataOut[i] = (dataOut[i] / 4096.0) * 180
+        dataOut[i] = (dataOut[i])
         dataOut[i] = round(dataOut[i])
 
   print(dataOut)
