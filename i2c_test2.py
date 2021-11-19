@@ -54,9 +54,8 @@ while 1:
 
 
   if (3500 < dataOut[0] < 4000) and (0 < dataOut[2] < 550):
-        angleY = 90-((dataOut[0]) / 520) * 90
+        angleY = 90-((dataOut[2]) / 520) * 90
         print("1")
-
 
 
 
