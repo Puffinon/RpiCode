@@ -29,9 +29,15 @@ while 1:
         dataOut[i] = (dataOut[i])
         dataOut[i] = round(dataOut[i])
 
-  Aval = 513
-  Bval = 4096
-  Cval = 3583
+  print(dataOut)
+
+
+
+
+  #print(round(angleX))
+  #print(round(angleY))
+
+"""
   
   x_Buff = dataOut[0]
   y_Buff = dataOut[1]
@@ -40,11 +46,7 @@ while 1:
   angleX = math.atan2(y_Buff , z_Buff) * 57.3;
   angleY = math.atan2((- x_Buff) , math.sqrt(y_Buff * y_Buff + z_Buff * z_Buff)) * 57.3;
   
-  print(dataOut)
-  print(round(angleX))
-  print(round(angleY))
 
-"""
   if (Bval > dataOut[1] > Cval) and (0 < dataOut[2] < Aval):
         OldValue = dataOut[2]
         #NewValue = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin
