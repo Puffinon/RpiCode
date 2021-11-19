@@ -37,9 +37,12 @@ while 1:
         #NewValue = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin
         
         #angleX = NewValue
-        angleX = ((dataOut[2]) / 520) * 90
-        print("YES")
+        angleX = -90 + ((dataOut[2]) / 520) * 90
         #angleX = ((dataOut[2] - 3500) / 500) * 180
+  if (520 > dataOut[1] > 0) and (0 < dataOut[2] < 550):
+        angleX = ((dataOut[1]) / 520) * 90
+        print("YES")
+
   else:
         OldValue = dataOut[2]
         NewValue = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin
