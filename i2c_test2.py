@@ -26,5 +26,12 @@ while 1:
         dataOut[i] = (dataOut[i])
         dataOut[i] = round(dataOut[i])
 
-  print(dataOut)
+
+if dataOut[1] > 3500 and dataOut[2] < 500:
+      angleX = (dataOut[1] / 500) * 180
+else:
+      angleX = -(dataOut[1] / 500) * 180
+
+print(dataOut)
+print(angleX)
 
