@@ -27,19 +27,22 @@ while 1:
         dataOut[i] = round(dataOut[i])
 
 
-  
-  if dataOut[1] > 3500 and dataOut[2] < 500:
+  OldMin = 500
+  OldMax = 3500
+  NewMin = 0
+  NewMax = 180
+        
+  if (4097 > dataOut[1] > 3499) and (-1 < dataOut[2] < 501):
         OldValue = dataOut[2]
-        OldMin = 500
-        OldMax = 3500
-        NewMin = 0
-        NewMax = 180
         NewValue = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin
         
-        angleX = NewValue
+        angleX = NewValue + 270
         #angleX = ((dataOut[2] - 3500) / 500) * 180
   else:
-        angleX = -(dataOut[1] / 500) * 180
+        OldValue = dataOut[2]
+        NewValue = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin
+        angleX = NewValue + 270
+        
 
   print(dataOut)
   print(angleX)
