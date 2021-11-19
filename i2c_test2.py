@@ -21,12 +21,12 @@ while 1:
   dataIn=bus.read_i2c_block_data(0x15,0x04,6)
 
   
-  dataOut[0] = dataIn[0] + (dataIn[1]*256)
-  dataOut[1] = dataIn[2] + (dataIn[3]*256)
-  dataOut[2] = dataIn[4] + (dataIn[5]*256)
+  dataOut[0] = dataIn[0]# + (dataIn[1]*256)
+  dataOut[1] = dataIn[2]# + (dataIn[3]*256)
+  dataOut[2] = dataIn[4]# + (dataIn[5]*256)
 
   for i in range(3):
-        dataOut[i] = (dataOut[i])/22.755
+        dataOut[i] = (dataOut[i])#/22.755
         dataOut[i] = round(dataOut[i])
 
   print(dataOut)
