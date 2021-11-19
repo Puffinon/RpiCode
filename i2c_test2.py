@@ -38,7 +38,7 @@ while 1:
   z_Buff = dataOut[2]
 
   angleX = math.atan2(y_Buff , z_Buff) * 57.3;
-  angleY = math.atan2((- x_Buff) , sqrt(y_Buff * y_Buff + z_Buff * z_Buff)) * 57.3;
+  angleY = math.atan2((- x_Buff) , math.sqrt(y_Buff * y_Buff + z_Buff * z_Buff)) * 57.3;
   
   print(dataOut)
   print(round(angleX))
